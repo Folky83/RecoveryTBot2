@@ -1,0 +1,60 @@
+D:\python\mintos\RecoveryTBot-main>python -m pip install --user --upgrade --force-reinstall git+https://github.com/Folky83/RecoveryTBot.git
+Collecting git+https://github.com/Folky83/RecoveryTBot.git
+  Cloning https://github.com/Folky83/RecoveryTBot.git to c:\users\gebruiker\appdata\local\temp\pip-req-build-h_eymoeh
+  Running command git clone --filter=blob:none --quiet https://github.com/Folky83/RecoveryTBot.git 'C:\Users\Gebruiker\AppData\Local\Temp\pip-req-build-h_eymoeh'
+  Resolved https://github.com/Folky83/RecoveryTBot.git to commit 8717419d04d534a2924ad0ad4141f557ec97212b
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting aiohttp>=3.11.12 (from mintos-telegram-bot==1.0.0)
+  Using cached aiohttp-3.12.13-cp313-cp313-win_amd64.whl.metadata (7.9 kB)
+Collecting beautifulsoup4>=4.13.3 (from mintos-telegram-bot==1.0.0)
+  Using cached beautifulsoup4-4.13.4-py3-none-any.whl.metadata (3.8 kB)
+Collecting duckduckgo-search>=8.0.4 (from mintos-telegram-bot==1.0.0)
+  Using cached duckduckgo_search-8.0.4-py3-none-any.whl.metadata (16 kB)
+Collecting feedparser>=6.0.11 (from mintos-telegram-bot==1.0.0)
+  Using cached feedparser-6.0.11-py3-none-any.whl.metadata (2.4 kB)
+Collecting numpy==1.26.4 (from mintos-telegram-bot==1.0.0)
+  Using cached numpy-1.26.4.tar.gz (15.8 MB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+  Preparing metadata (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+
+  × Preparing metadata (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [21 lines of output]
+      + C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\python.exe C:\Users\Gebruiker\AppData\Local\Temp\pip-install-8y8au02n\numpy_47166f4b6d2843819acdff94353393f3\vendored-meson\meson\meson.py setup C:\Users\Gebruiker\AppData\Local\Temp\pip-install-8y8au02n\numpy_47166f4b6d2843819acdff94353393f3 C:\Users\Gebruiker\AppData\Local\Temp\pip-install-8y8au02n\numpy_47166f4b6d2843819acdff94353393f3\.mesonpy-_8qb0pff -Dbuildtype=release -Db_ndebug=if-release -Db_vscrt=md --native-file=C:\Users\Gebruiker\AppData\Local\Temp\pip-install-8y8au02n\numpy_47166f4b6d2843819acdff94353393f3\.mesonpy-_8qb0pff\meson-python-native-file.ini
+      The Meson build system
+      Version: 1.2.99
+      Source dir: C:\Users\Gebruiker\AppData\Local\Temp\pip-install-8y8au02n\numpy_47166f4b6d2843819acdff94353393f3
+      Build dir: C:\Users\Gebruiker\AppData\Local\Temp\pip-install-8y8au02n\numpy_47166f4b6d2843819acdff94353393f3\.mesonpy-_8qb0pff
+      Build type: native build
+      Project name: NumPy
+      Project version: 1.26.4
+      WARNING: Failed to activate VS environment: Could not find C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe
+
+      ..\meson.build:1:0: ERROR: Unknown compiler(s): [['icl'], ['cl'], ['cc'], ['gcc'], ['clang'], ['clang-cl'], ['pgcc']]
+      The following exception(s) were encountered:
+      Running `icl ""` gave "[WinError 2] The system cannot find the file specified"
+      Running `cl /?` gave "[WinError 2] The system cannot find the file specified"
+      Running `cc --version` gave "[WinError 2] The system cannot find the file specified"
+      Running `gcc --version` gave "[WinError 2] The system cannot find the file specified"
+      Running `clang --version` gave "[WinError 2] The system cannot find the file specified"
+      Running `clang-cl /?` gave "[WinError 2] The system cannot find the file specified"
+      Running `pgcc --version` gave "[WinError 2] The system cannot find the file specified"
+
+      A full log can be found at C:\Users\Gebruiker\AppData\Local\Temp\pip-install-8y8au02n\numpy_47166f4b6d2843819acdff94353393f3\.mesonpy-_8qb0pff\meson-logs\meson-log.txt
+      [end of output]
+
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
+
+D:\python\mintos\RecoveryTBot-main>
