@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mintos-telegram-bot"
+version = "1.0.0"
+description = "A sophisticated Telegram bot and dashboard for monitoring Mintos lending platform investments"
+requires-python = ">=3.11"
+authors = [
+    {name = "Mintos Bot Developer", email = "developer@example.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+keywords = ["telegram", "bot", "mintos", "investment", "monitoring"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "aiohttp>=3.11.12",
+    "beautifulsoup4>=4.13.3",
+    "duckduckgo-search>=8.0.4",
+    "feedparser>=6.0.11",
+    "numpy==1.26.4",
+    "openai>=1.88.0",
+    "pandas==2.1.4",
+    "psutil>=6.1.1",
+    "python-telegram-bot[job-queue]>=21.0",
+    "requests>=2.32.3",
+    "streamlit>=1.41.1",
+    "tlgbotfwk>=0.4.61",
+    "trafilatura>=2.0.0",
+    "twilio>=9.4.4",
+    "watchdog>=6.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Folky83/RecoveryTBot"
+Repository = "https://github.com/Folky83/RecoveryTBot"
+Issues = "https://github.com/Folky83/RecoveryTBot/issues"
+
+[project.scripts]
+mintos-bot = "mintos_bot.run:main"
+mintos-bot-dashboard = "mintos_bot.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mintos_bot*"]
+exclude = ["tests*", "data*", "logs*", "attached_assets*", "bot*"]
+
+[tool.setuptools.package-data]
+mintos_bot = ["*.md", "*.txt", "*.json", "data/*.csv", "data/*.json", "data/*.txt"]
