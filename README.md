@@ -19,7 +19,7 @@ A sophisticated Telegram bot and dashboard for monitoring Mintos lending platfor
 
 2. **Install the bot** using pip:
    ```bash
-   python -m pip install --user --upgrade --force-reinstall git+https://github.com/Folky83/RecoveryTBot.git
+   python -m pip install --user --upgrade --force-reinstall git+https://github.com/Folky83/RecoveryTBot2.git
    ```
 
 3. **Set your Telegram bot token**:
@@ -38,7 +38,7 @@ A sophisticated Telegram bot and dashboard for monitoring Mintos lending platfor
 
 To update the bot to the latest version:
 ```bash
-python -m pip install --user --upgrade --force-reinstall git+https://github.com/Folky83/RecoveryTBot.git
+python -m pip install --user --upgrade --force-reinstall git+https://github.com/Folky83/RecoveryTBot2.git
 ```
 
 ### Option 2: Clone and Run
@@ -138,7 +138,7 @@ But you don't need to remember this location - just use `python -m mintos_bot.ru
 **Bot doesn't start:**
 - Check that your token is correct in config.txt
 - Ensure Python 3.11+ is installed
-- Try reinstalling: `python -m pip install --user --upgrade --force-reinstall git+https://github.com/Folky83/RecoveryTBot.git`
+- Try reinstalling: `python -m pip install --user --upgrade --force-reinstall git+https://github.com/Folky83/RecoveryTBot2.git`
 
 **"python-telegram-bot" compatibility errors:**
 - This usually means you need to update to the latest version

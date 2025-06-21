@@ -56,7 +56,7 @@ def install_dependencies():
 
 def download_bot():
     """Download bot files from GitHub"""
-    repo_url = "https://github.com/Folky83/RecoveryTBot/archive/refs/heads/main.zip"
+    repo_url = "https://github.com/Folky83/RecoveryTBot2/archive/refs/heads/main.zip"
     
     print("Downloading bot files...")
     try:
