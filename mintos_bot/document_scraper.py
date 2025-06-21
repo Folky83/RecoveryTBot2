@@ -14,7 +14,7 @@ import time
 from datetime import datetime
 from typing import Dict, List, Any, Optional, Union, Set
 from bs4 import BeautifulSoup, Tag
-# import pandas as pd  # Temporarily disabled due to system library issues
+import pandas as pd
 
 from .constants import (
     DATA_DIR, DOCUMENTS_CACHE_FILE, SENT_DOCUMENTS_FILE, SENT_DOCUMENTS_BACKUP,
