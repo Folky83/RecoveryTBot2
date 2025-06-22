@@ -45,6 +45,7 @@ class OpenAINewsReader:
         self.openai_api_key = os.getenv('OPENAI_API_KEY')
         self.brave_reader = BraveNewsReader()
         self.companies = self.brave_reader.companies
+        logger.info(f"OpenAINewsReader initialized with {len(self.companies)} companies")
         self.csv_log_file = 'data/brave_openai_responses.tsv'
         self.rejected_urls_file = 'data/openai_rejected_urls.json'
         self._ensure_csv_headers()
@@ -419,6 +420,7 @@ If NO results specifically mention "{company_name}" by name, set "is_relevant": 
 
     async def fetch_news_by_days(self, days: int, use_cache: bool = False) -> List[OpenAINewsItem]:
         """Fetch news for all companies within specified days using Brave + OpenAI"""
+        logger.info(f"Starting news search for {len(self.companies)} companies over {days} days")
         all_news = []
         
         for company in self.companies:

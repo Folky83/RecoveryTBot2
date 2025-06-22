@@ -97,6 +97,8 @@ class BraveNewsReader:
                 
                 self.companies = list(companies_dict.values())
                 logger.info(f"Loaded {len(self.companies)} unique companies from {csv_path}")
+                if self.companies:
+                    logger.info(f"First company loaded: {self.companies[0]}")
             else:
                 logger.warning(f"Companies CSV file not found: {csv_path}")
         except Exception as e:
