@@ -80,11 +80,11 @@ class BraveNewsReader:
         try:
             csv_path = 'data/mintos_companies_prompt_input.csv'
             if os.path.exists(csv_path):
-                # Read CSV manually without pandas
+                # Read CSV manually without pandas, handle semicolon separator
                 import csv
                 companies_dict = {}
                 with open(csv_path, 'r', encoding='utf-8') as f:
-                    reader = csv.DictReader(f)
+                    reader = csv.DictReader(f, delimiter=';')
                     for row in reader:
                         company_name = str(row.get('Company Name', '')).strip()
                         if company_name and company_name not in companies_dict:

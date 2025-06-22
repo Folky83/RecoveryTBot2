@@ -105,29 +105,31 @@ class PerplexityNewsReader(BaseManager):
     def _load_company_data(self) -> List[Dict[str, str]]:
         """Load company data from CSV file"""
         try:
-            df = pd.read_csv(self.company_file)
+            import csv
             companies = []
             seen_companies = set()  # Track duplicates
             
-            for _, row in df.iterrows():
-                company_name = str(row['Company Name']).strip()
-                brief_description = str(row['Brief Description']).strip()
-                
-                # Skip empty rows or duplicates
-                if not company_name or company_name in seen_companies:
-                    if company_name:
-                        logger.debug(f"Skipping duplicate company: {company_name}")
-                    continue
-                
-                seen_companies.add(company_name)
-                
-                company_data = {
-                    'company_name': company_name,
-                    'brief_description': brief_description,
-                    'investment_type': 'Bond'  # Default for Mintos companies
-                }
-                
-                companies.append(company_data)
+            with open(self.company_file, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f, delimiter=';')
+                for row in reader:
+                    company_name = str(row.get('Company Name', '')).strip()
+                    brief_description = str(row.get('Brief Description', '')).strip()
+                    
+                    # Skip empty rows or duplicates
+                    if not company_name or company_name in seen_companies:
+                        if company_name:
+                            logger.debug(f"Skipping duplicate company: {company_name}")
+                        continue
+                    
+                    seen_companies.add(company_name)
+                    
+                    company_data = {
+                        'company_name': company_name,
+                        'brief_description': brief_description,
+                        'investment_type': 'Bond'  # Default for Mintos companies
+                    }
+                    
+                    companies.append(company_data)
             
             logger.info(f"Loaded {len(companies)} unique companies from {self.company_file} (deduplicated)")
             return companies
