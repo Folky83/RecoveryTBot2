@@ -1,0 +1,27 @@
+2025-06-22 17:49:53,805 - mintos_bot.telegram_bot - ERROR - TELEGRAM_BOT_TOKEN not set
+2025-06-22 17:49:53,805 - mintos_bot.telegram_bot - ERROR - Bot initialization failed
+2025-06-22 17:49:53,806 - mintos_bot.telegram_bot - ERROR - Runtime error: Bot initialization failed
+Traceback (most recent call last):
+  File "C:\Users\Gebruiker\AppData\Roaming\Python\Python313\site-packages\mintos_bot\telegram_bot.py", line 342, in run
+    raise RuntimeError("Bot initialization failed")
+RuntimeError: Bot initialization failed
+2025-06-22 17:49:53,807 - mintos_bot.telegram_bot - INFO - Retrying (attempt 3/3)...
+2025-06-22 17:49:58,820 - mintos_bot.telegram_bot - INFO - Starting cleanup process...
+2025-06-22 17:49:58,820 - mintos_bot.telegram_bot - INFO - Cleanup completed successfully
+2025-06-22 17:49:58,821 - mintos_bot.telegram_bot - INFO - Starting cleanup process...
+2025-06-22 17:49:58,822 - mintos_bot.telegram_bot - INFO - Cleanup completed successfully
+2025-06-22 17:50:00,824 - mintos_bot.telegram_bot - INFO - Starting bot initialization...
+2025-06-22 17:50:00,824 - mintos_bot.telegram_bot - INFO - Starting cleanup process...
+2025-06-22 17:50:00,824 - mintos_bot.telegram_bot - INFO - Cleanup completed successfully
+2025-06-22 17:50:02,828 - mintos_bot.telegram_bot - ERROR - TELEGRAM_BOT_TOKEN not set
+2025-06-22 17:50:02,829 - mintos_bot.telegram_bot - ERROR - Bot initialization failed
+2025-06-22 17:50:02,829 - mintos_bot.telegram_bot - ERROR - Runtime error: Bot initialization failed
+Traceback (most recent call last):
+  File "C:\Users\Gebruiker\AppData\Roaming\Python\Python313\site-packages\mintos_bot\telegram_bot.py", line 342, in run
+    raise RuntimeError("Bot initialization failed")
+RuntimeError: Bot initialization failed
+2025-06-22 17:50:02,832 - mintos_bot.telegram_bot - ERROR - Max retries reached
+2025-06-22 17:50:02,832 - mintos_bot.telegram_bot - INFO - Starting cleanup process...
+2025-06-22 17:50:02,833 - mintos_bot.telegram_bot - INFO - Cleanup completed successfully
+Error starting bot: Bot initialization failed
+PS C:\Users\Gebruiker>
