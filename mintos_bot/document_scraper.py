@@ -391,21 +391,10 @@ class DocumentScraper:
             'User-Agent': DEFAULT_USER_AGENT
         }
         
-        # Configure connector
-        connector_kwargs = {}
-        if USE_PROXY and PROXY_HOST and PROXY_AUTH:
-            logger.debug(f"Using proxy for document scraping: {PROXY_HOST}")
-        
         for attempt in range(MAX_HTTP_RETRIES):
             try:
-                connector = aiohttp.TCPConnector(**connector_kwargs)
-                async with aiohttp.ClientSession(timeout=HTTP_CLIENT_TIMEOUT, connector=connector) as session:
-                    # Configure proxy if enabled
-                    proxy = None
-                    if USE_PROXY and PROXY_HOST and PROXY_AUTH:
-                        proxy = f'http://{PROXY_AUTH}@{PROXY_HOST}'
-                    
-                    async with session.get(url, headers=headers, proxy=proxy) as response:
+                async with aiohttp.ClientSession(timeout=HTTP_CLIENT_TIMEOUT) as session:
+                    async with session.get(url, headers=headers) as response:
                         if response.status == 200:
                             return await response.text()
                         else:

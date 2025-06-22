@@ -79,11 +79,11 @@ class RSSReader(BaseManager):
             'ffnews': "https://ffnews.com/category/newsarticle/feed/"
         }
         
-        # Feed configurations with different update intervals and proxy settings
+        # Feed configurations with different update intervals
         self.feed_configs = {
-            'nasdaq': {'interval_minutes': 15, 'use_proxy': True},
-            'mintos': {'interval_minutes': 60, 'use_proxy': False},
-            'ffnews': {'interval_minutes': 60, 'use_proxy': False}
+            'nasdaq': {'interval_minutes': 15},
+            'mintos': {'interval_minutes': 60},
+            'ffnews': {'interval_minutes': 60}
         }
         
         # Last check timestamps for each feed
@@ -320,39 +320,10 @@ class RSSReader(BaseManager):
         try:
             logger.info(f"Fetching {feed_source} RSS feed from {url}")
             
-            # Get feed configuration
-            config = self.feed_configs.get(feed_source, {})
-            use_proxy = config.get('use_proxy', True)
-            
             timeout = aiohttp.ClientTimeout(total=30)
             
-            # Configure session with or without proxy
-            connector_kwargs = {}
-            session_kwargs = {'timeout': timeout}
-            
-            if use_proxy:
-                # Use proxy for NASDAQ Baltic feed
-                try:
-                    proxy_url = os.getenv('PROXY_URL')
-                    if proxy_url:
-                        session_kwargs['connector'] = aiohttp.TCPConnector()
-                        logger.debug(f"Using proxy for {feed_source} feed")
-                    else:
-                        logger.debug(f"No proxy configured for {feed_source} feed")
-                except Exception as e:
-                    logger.warning(f"Proxy setup failed for {feed_source}: {e}")
-            else:
-                logger.debug(f"Bypassing proxy for {feed_source} feed")
-            
-            async with aiohttp.ClientSession(**session_kwargs) as session:
-                # Add proxy to request if configured
-                request_kwargs = {}
-                if use_proxy:
-                    proxy_url = os.getenv('PROXY_URL')
-                    if proxy_url:
-                        request_kwargs['proxy'] = proxy_url
-                
-                async with session.get(url, **request_kwargs) as response:
+            async with aiohttp.ClientSession(timeout=timeout) as session:
+                async with session.get(url) as response:
                     if response.status == 200:
                         content = await response.text()
                         feed = feedparser.parse(content)
