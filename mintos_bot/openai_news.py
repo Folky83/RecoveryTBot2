@@ -90,39 +90,36 @@ Please review these search results and select the SINGLE most authoritative and 
 
 {chr(10).join(results_summary)}
 
-CRITICAL COMPANY RELEVANCE CRITERIA:
-The article MUST specifically mention "{company_name}" by name in the title OR description.
-
-REJECT articles that only contain:
-- General industry trends without mentioning {company_name} specifically
-- Competitor news (other companies in the same sector)
-- General market analysis or sector reports
-- Job postings or career-related content
-- Regional economic news without company-specific information
-- Regulatory changes affecting the industry broadly
+COMPANY RELEVANCE CRITERIA (relaxed for better coverage):
+The article should be related to "{company_name}" or the financial/fintech sector in their region.
 
 ACCEPT articles that discuss:
-- {company_name}'s financial results, earnings, or revenue
-- {company_name}'s business announcements, press releases, or corporate news
-- {company_name}'s acquisitions, mergers, partnerships, or strategic initiatives
-- {company_name}'s new products, services, or market expansions
-- {company_name}'s executive appointments or leadership changes
-- {company_name}'s regulatory issues or legal matters
-- Direct quotes from {company_name} representatives or executives
+- {company_name} specifically (highest priority)
+- Similar companies in the same sector/region as {company_name}
+- Financial technology trends in their market ({brief_description})
+- Regulatory changes affecting their sector
+- Market developments in their geographic region
+- Industry partnerships or acquisitions in their space
+
+REJECT only clearly irrelevant articles:
+- Real estate listings unrelated to business
+- Sports or entertainment news
+- Medical/health news (unless {company_name} is healthcare-related)
+- General political news without financial impact
 
 Selection criteria (in order of priority):
-1. MUST explicitly mention {company_name} by name
-2. Comes from credible financial/business news sources
-3. Contains specific information about {company_name}'s business operations or financial performance
-4. Has recent and accurate information
+1. Mentions {company_name} directly (highest priority)
+2. Discusses similar companies or sector trends relevant to {company_name}
+3. Comes from credible financial/business news sources
+4. Contains information about the fintech/lending industry in their region
 5. When results have similar quality, prioritize [HIGH CERTAINTY] results over [LOWER CERTAINTY] ones
 
 Respond ONLY with a JSON object in this exact format:
 {{
     "selected_index": <1-based index of chosen result>,
-    "reasoning": "<brief explanation focusing on how the article specifically mentions {company_name}>",
+    "reasoning": "<brief explanation of why this article is relevant to {company_name} or their sector>",
     "title": "<exact title from chosen result>",
-    "content_summary": "<create a clear 1-2 sentence summary focusing on what this means for {company_name}>",
+    "content_summary": "<create a clear 1-2 sentence summary of the news and its relevance to {company_name} or their market>",
     "translation_needed": <true/false - whether the content appears to be in a non-English language>,
     "translated_summary": "<if translation_needed is true, provide English translation of the summary>",
     "is_relevant": true/false
