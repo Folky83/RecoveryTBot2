@@ -417,7 +417,7 @@ If NO results specifically mention "{company_name}" by name, set "is_relevant": 
 
 
 
-    async def fetch_news_by_days(self, days: int, use_cache: bool = True) -> List[OpenAINewsItem]:
+    async def fetch_news_by_days(self, days: int, use_cache: bool = False) -> List[OpenAINewsItem]:
         """Fetch news for all companies within specified days using Brave + OpenAI"""
         all_news = []
         

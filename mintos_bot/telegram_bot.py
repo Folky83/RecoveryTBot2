@@ -1093,8 +1093,8 @@ class MintosBot:
                 )
                 
                 try:
-                    # Use the new cached method
-                    news_items = await self.openai_news.fetch_news_by_days(days, use_cache=True)
+                    # Always perform fresh search
+                    news_items = await self.openai_news.fetch_news_by_days(days, use_cache=False)
                     
                     if not news_items:
                         await query.edit_message_text(

@@ -591,14 +591,10 @@ class PerplexityNewsReader(BaseManager):
         except Exception as e:
             logger.error(f"Error saving cache: {e}")
     
-    async def fetch_news_by_days(self, days: int, use_cache: bool = True) -> List[PerplexityNewsItem]:
+    async def fetch_news_by_days(self, days: int, use_cache: bool = False) -> List[PerplexityNewsItem]:
         """Fetch news for all companies within specified days"""
-        # Check cache first
-        if use_cache:
-            cache_key = self._get_cache_key(self.companies, days)
-            cached_results = self._load_cached_results(cache_key)
-            if cached_results is not None:
-                return cached_results
+        # Always perform fresh search - caching disabled
+        logger.info(f"Performing fresh news search (caching disabled)")
         
         # Determine recency filter for API
         if days <= 1:
@@ -619,10 +615,7 @@ class PerplexityNewsReader(BaseManager):
         cutoff_date = target_date.replace(hour=0, minute=0, second=0, microsecond=0)
         filtered_news = self._filter_news_by_date(all_news, cutoff_date)
         
-        # Save filtered results to cache
-        if use_cache and filtered_news:
-            cache_key = self._get_cache_key(self.companies, days)
-            self._save_cached_results(cache_key, filtered_news)
+        # Caching disabled - skip saving results
         
         logger.info(f"API returned {len(all_news)} items, filtered to {len(filtered_news)} items within last {days} days")
         return filtered_news
