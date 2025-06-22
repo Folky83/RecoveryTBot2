@@ -21,7 +21,7 @@ from .constants import (
     COMPANY_PAGES_CSV, DOCUMENT_TYPES, MAX_HTTP_RETRIES, HTTP_RETRY_DELAY,
     HTTP_CLIENT_TIMEOUT, DEFAULT_USER_AGENT, DOCUMENT_CACHE_TTL
 )
-from .config import PROXY_HOST, PROXY_AUTH, USE_PROXY
+
 from .utils import safe_get_text, safe_get_attribute, safe_find, safe_find_all, FileBackupManager, create_unique_id
 
 # Configure logging

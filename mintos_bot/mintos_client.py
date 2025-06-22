@@ -12,10 +12,7 @@ from .config import (
     REQUEST_DELAY,
     MAX_RETRIES,
     RETRY_DELAY,
-    REQUEST_TIMEOUT,
-    PROXY_HOST,
-    PROXY_AUTH,
-    USE_PROXY
+    REQUEST_TIMEOUT
 )
 
 logger = setup_logger(__name__)
@@ -31,22 +28,10 @@ class MintosClient:
             'Accept': 'application/json'
         })
         
-        # Configure proxy if enabled
-        if USE_PROXY and PROXY_HOST and PROXY_AUTH:
-            self.proxies = {
-                'http': f'http://{PROXY_AUTH}@{PROXY_HOST}',
-                'https': f'http://{PROXY_AUTH}@{PROXY_HOST}'
-            }
-            logger.info(f"Proxy configured: {PROXY_HOST}")
-        else:
-            self.proxies = None
-            logger.info("No proxy configured")
+
 
     def _make_request(self, url: str, method: str = 'GET', **kwargs) -> Optional[Dict[str, Any]]:
         """Make an HTTP request with retries and error handling"""
-        # Add proxy configuration to kwargs if available
-        if self.proxies:
-            kwargs['proxies'] = self.proxies
             
         for attempt in range(MAX_RETRIES):
             try:
