@@ -420,6 +420,13 @@ If NO results specifically mention "{company_name}" by name, set "is_relevant": 
 
     async def fetch_news_by_days(self, days: int, use_cache: bool = False) -> List[OpenAINewsItem]:
         """Fetch news for all companies within specified days using Brave + OpenAI"""
+        # Check if companies are loaded, if not reload them
+        if not self.companies:
+            logger.warning("No companies loaded, attempting to reload...")
+            self.brave_reader._load_companies()
+            self.companies = self.brave_reader.companies
+            logger.info(f"Reloaded {len(self.companies)} companies")
+        
         logger.info(f"Starting news search for {len(self.companies)} companies over {days} days")
         all_news = []
         

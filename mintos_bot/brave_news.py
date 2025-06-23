@@ -90,6 +90,11 @@ class BraveNewsReader:
                 if os.path.exists(path):
                     csv_path = path
                     break
+            
+            if not csv_path:
+                logger.error(f"Companies CSV file not found in any of these locations: {possible_paths}")
+                return
+                
             if csv_path and os.path.exists(csv_path):
                 # Read CSV manually without pandas, handle semicolon separator
                 import csv
@@ -110,8 +115,10 @@ class BraveNewsReader:
                 logger.info(f"Loaded {len(self.companies)} unique companies from {csv_path}")
                 if self.companies:
                     logger.info(f"First company loaded: {self.companies[0]}")
+                else:
+                    logger.warning(f"No companies found in {csv_path}")
             else:
-                logger.warning(f"Companies CSV file not found: {csv_path}")
+                logger.error(f"Companies CSV file not found: {csv_path}")
         except Exception as e:
             logger.error(f"Error loading companies: {e}")
 
