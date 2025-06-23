@@ -43,6 +43,8 @@ class OpenAINewsReader:
 
     def __init__(self):
         self.openai_api_key = os.getenv('OPENAI_API_KEY')
+        if not self.openai_api_key:
+            logger.error("OpenAI API key not configured")
         self.brave_reader = BraveNewsReader()
         self.companies = self.brave_reader.companies
         logger.info(f"OpenAINewsReader initialized with {len(self.companies)} companies")
