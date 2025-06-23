@@ -16,6 +16,7 @@ from dataclasses import dataclass, asdict
 
 from .logger import setup_logger
 from .brave_news import BraveNewsReader, BraveNewsResult
+from .config_loader import load_openai_key
 
 logger = setup_logger(__name__)
 
@@ -42,9 +43,9 @@ class OpenAINewsReader:
     """OpenAI-based news reader integrated with Brave API search"""
 
     def __init__(self):
-        self.openai_api_key = os.getenv('OPENAI_API_KEY')
+        self.openai_api_key = load_openai_key()
         if not self.openai_api_key:
-            logger.error("OpenAI API key not configured")
+            logger.error("OpenAI API key not configured - check config.txt file or environment variables")
         self.brave_reader = BraveNewsReader()
         self.companies = self.brave_reader.companies
         logger.info(f"OpenAINewsReader initialized with {len(self.companies)} companies")
