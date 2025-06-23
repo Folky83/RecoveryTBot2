@@ -78,8 +78,19 @@ class BraveNewsReader:
     def _load_companies(self):
         """Load companies from CSV file"""
         try:
-            csv_path = 'data/mintos_companies_prompt_input.csv'
-            if os.path.exists(csv_path):
+            # Try multiple locations for the CSV file
+            possible_paths = [
+                'data/mintos_companies_prompt_input.csv',
+                'mintos_bot/data/mintos_companies_prompt_input.csv',
+                os.path.join(os.path.dirname(__file__), 'data', 'mintos_companies_prompt_input.csv')
+            ]
+            
+            csv_path = None
+            for path in possible_paths:
+                if os.path.exists(path):
+                    csv_path = path
+                    break
+            if csv_path and os.path.exists(csv_path):
                 # Read CSV manually without pandas, handle semicolon separator
                 import csv
                 companies_dict = {}

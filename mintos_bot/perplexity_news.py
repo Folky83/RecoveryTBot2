@@ -83,7 +83,21 @@ class PerplexityNewsReader(BaseManager):
         super().__init__('data/perplexity_news_cache.json')
         self.api_key = os.getenv('PERPLEXITY_API_KEY')
         self.base_url = "https://api.perplexity.ai/chat/completions"
-        self.company_file = 'data/mintos_companies_prompt_input.csv'
+        # Try multiple locations for the CSV file
+        possible_paths = [
+            'data/mintos_companies_prompt_input.csv',
+            'mintos_bot/data/mintos_companies_prompt_input.csv',
+            os.path.join(os.path.dirname(__file__), 'data', 'mintos_companies_prompt_input.csv')
+        ]
+        
+        self.company_file = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                self.company_file = path
+                break
+        
+        if not self.company_file:
+            raise FileNotFoundError(f"Could not find mintos_companies_prompt_input.csv in any of these locations: {possible_paths}")
         self.sent_items_file = 'data/perplexity_sent_items.json'
         self.user_preferences_file = 'data/perplexity_user_preferences.json'
         
