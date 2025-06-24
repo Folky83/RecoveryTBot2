@@ -1,0 +1,89 @@
+2025-06-24 22:52:00,459 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 22:52:10,487 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 22:52:20,508 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 22:52:30,535 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 22:52:40,565 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 22:52:50,583 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 22:53:00,609 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 22:53:10,646 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 22:53:20,666 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\logging\handlers.py", line 80, in emit
+    self.doRollover()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\logging\handlers.py", line 185, in doRollover
+    self.rotate(self.baseFilename, dfn)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\logging\handlers.py", line 121, in rotate
+    os.rename(source, dest)
+    ~~~~~~~~~^^^^^^^^^^^^^^
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\Gebruiker\\logs\\mintos_bot.log' -> 'C:\\Users\\Gebruiker\\logs\\mintos_bot.log.1'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Gebruiker\AppData\Roaming\Python\Python313\site-packages\mintos_bot\run.py", line 130, in <module>
+    sys.exit(main())
+  File "C:\Users\Gebruiker\AppData\Roaming\Python\Python313\site-packages\mintos_bot\run.py", line 105, in main
+    asyncio.run(run_bot())
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2034, in _run_once
+    handle._run()
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Gebruiker\AppData\Roaming\Python\Python313\site-packages\mintos_bot\telegram_bot.py", line 255, in scheduled_updates
+    should_check = await self.should_check_updates()
+  File "C:\Users\Gebruiker\AppData\Roaming\Python\Python313\site-packages\mintos_bot\telegram_bot.py", line 2970, in should_check_updates
+    logger.debug(f"Current server time: {now.strftime('%Y-%m-%d %H:%M:%S')} (weekday: {now.weekday()}, hour: {now.hour})")
+Message: 'Current server time: 2025-06-24 22:53:27 (weekday: 1, hour: 22)'
+Arguments: ()
+2025-06-24 22:53:27,322 - mintos_bot.telegram_bot - DEBUG - Current server time: 2025-06-24 22:53:27 (weekday: 1, hour: 22)
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\logging\handlers.py", line 80, in emit
+    self.doRollover()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\logging\handlers.py", line 185, in doRollover
+    self.rotate(self.baseFilename, dfn)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\logging\handlers.py", line 121, in rotate
+    os.rename(source, dest)
+    ~~~~~~~~~^^^^^^^^^^^^^^
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\Gebruiker\\logs\\mintos_bot.log' -> 'C:\\Users\\Gebruiker\\logs\\mintos_bot.log.1'
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Gebruiker\AppData\Roaming\Python\Python313\site-packages\mintos_bot\run.py", line 130, in <module>
+    sys.exit(main())
+  File "C:\Users\Gebruiker\AppData\Roaming\Python\Python313\site-packages\mintos_bot\run.py", line 105, in main
+    asyncio.run(run_bot())
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 2034, in _run_once
+    handle._run()
+  File "C:\Users\Gebruiker\AppData\Local\Programs\Python\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Gebruiker\AppData\Roaming\Python\Python313\site-packages\mintos_bot\telegram_bot.py", line 255, in scheduled_updates
+    should_check = await self.should_check_updates()
+  File "C:\Users\Gebruiker\AppData\Roaming\Python\Python313\site-packages\mintos_bot\telegram_bot.py", line 3002, in should_check_updates
+    logger.debug(f"Skipping updatecheck - outside scheduled hours (weekday: {now.weekday()}, hour: {now.hour})")
+Message: 'Skipping updatecheck - outside scheduled hours (weekday: 1, hour: 22)'
+Arguments: ()
+2025-06-24 22:53:27,331 - mintos_bot.telegram_bot - DEBUG - Skipping updatecheck - outside scheduled hours (weekday: 1, hour: 22)
+2025-06-24 22:53:30,692 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 22:53:40,718 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 22:53:50,743 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
+2025-06-24 22:54:00,781 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7368080976:AAHMyYs3_hxWBA-u66pLEgNKobyrGE1pHn8/getUpdates "HTTP/1.1 200 OK"
