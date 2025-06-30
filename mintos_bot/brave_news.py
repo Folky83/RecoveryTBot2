@@ -13,6 +13,7 @@ from dataclasses import dataclass, asdict
 # import pandas as pd  # Temporarily disabled due to system library issues
 
 from .logger import setup_logger
+from .config_loader import load_brave_key
 
 logger = setup_logger(__name__)
 
@@ -40,7 +41,7 @@ class BraveNewsReader:
     """Brave API-based news reader for financial companies"""
 
     def __init__(self):
-        self.api_key = os.getenv('BRAVE_API_KEY')
+        self.api_key = load_brave_key()
         self.base_url = "https://api.search.brave.com/res/v1/news/search"
         self.companies = []
         # Mapping for unsupported country codes to closest supported alternatives

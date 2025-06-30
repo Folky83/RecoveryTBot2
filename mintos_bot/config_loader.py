@@ -70,6 +70,10 @@ def load_openai_key():
     """Load OpenAI API key from config sources"""
     return load_config_value('OPENAI_API_KEY')
 
+def load_brave_key():
+    """Load Brave API key from config sources"""
+    return load_config_value('BRAVE_API_KEY')
+
 def create_sample_config():
     """Create a sample config file for users"""
     sample_config = """# Mintos Telegram Bot Configuration

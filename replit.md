@@ -93,6 +93,7 @@ The Mintos Telegram Bot is a sophisticated monitoring and notification system fo
 4. **Graceful Shutdown**: Cleanup of resources and temporary files
 
 ## Recent Changes
+- June 30, 2025: Fixed Brave API key configuration loading - updated brave_news module to use centralized config loader system instead of only checking environment variables
 - June 24, 2025: Fixed Windows logging permission errors by implementing platform-specific logging approach
 - June 24, 2025: Bot successfully deployed and running on Replit with dashboard on port 5000
 - June 24, 2025: Initial setup
