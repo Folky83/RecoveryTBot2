@@ -5396,6 +5396,22 @@
                 "substatus": null,
                 "items": [
                     {
+                        "date": "2025-06-27",
+                        "recoveredAmount": null,
+                        "remainingAmount": null,
+                        "expectedRecoveryFrom": null,
+                        "expectedRecoveryTo": "100.0",
+                        "expectedRecoveryYearFrom": null,
+                        "expectedRecoveryYearTo": 2025,
+                        "status": "temporary_payment_disruption",
+                        "substatus": null,
+                        "description": "<p>We received &euro;35k this week. We expect Dinerito Xtra to make the next payment by 12 July 2025.</p>",
+                        "isRecoveredAmountIncreased": null,
+                        "isRemainingAmountIncreased": null,
+                        "isExpectedRecoveryToIncreased": null,
+                        "isExpectedRecoveryYearToIncreased": null
+                    },
+                    {
                         "date": "2025-06-20",
                         "recoveredAmount": null,
                         "remainingAmount": null,
